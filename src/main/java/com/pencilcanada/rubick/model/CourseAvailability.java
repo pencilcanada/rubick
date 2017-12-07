@@ -1,24 +1,11 @@
-package com.pencilcanada.rubick.pojo;
+package com.pencilcanada.rubick.model;
+
+import lombok.Data;
 
 import java.time.LocalTime;
 
+@Data
 public class CourseAvailability {
     private LocalTime time;
     private int availability;
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
-
-    public int getAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(int availability) {
-        this.availability = availability;
-    }
 }

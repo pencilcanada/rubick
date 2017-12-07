@@ -2,13 +2,13 @@ package com.pencilcanada.rubick.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class ExceptionHandler {
+public class GeneralExceptionHandler {
+
     @ExceptionHandler({Exception.class})
-    public ResponseEntity<Object> handleNotFoundException(Exception exception, WebRequest request){
-
-        return new ResponseEntity<Object>("Resource Not Found", new HttpHeaders(), HttpStatus.NOT_FOUND);
-
+    public ResponseEntity<Object> handleException(Exception exception){
+        return  ResponseEntity.badRequest().build();
     }
 }
