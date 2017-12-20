@@ -1,2 +1,2 @@
 # rubick
-Course web services of PencilCanada
+Course reactive web services of PencilCanada
