@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: rubick
+  cloud:
+    config:
+      uri: http://localhost:8900
+encrypt:
+  key: tutor123
