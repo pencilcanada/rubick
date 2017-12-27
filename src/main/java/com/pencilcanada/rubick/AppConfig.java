@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 @Configuration
 @EnableReactiveMongoRepositories
 public class AppConfig extends AbstractReactiveMongoConfiguration {
@@ -23,6 +26,11 @@ public class AppConfig extends AbstractReactiveMongoConfiguration {
     @Override
     @Bean
     public MongoClient reactiveMongoClient() {
-        return MongoClients.create(mongoUri);
+        try {
+            return MongoClients.create(URLDecoder.decode(mongoUri,"UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
